@@ -4,20 +4,8 @@
       Generate QR
     </t-button>
 
-    <t-modal header="Title of the modal">
-      <qrcode-vue v-if="totp" :value="totp"/>
-      {{ totp }}
-
-      <template v-slot:footer>
-        <div class="flex justify-between">
-          <t-button type="button">
-            Cancel
-          </t-button>
-          <t-button type="button">
-            Ok
-          </t-button>
-        </div>
-      </template>
+    <t-modal v-model="isOpen" header="Let the cashier scan this">
+      <qrcode-vue :size="464" render-as="svg" v-if="totp" :value="totp"/>
     </t-modal>
   </div>
 </template>
@@ -35,11 +23,13 @@ export default {
   data() {
     return {
       totp: null,
-      time: 30
+      time: 30,
+      isOpen: false,
     }
   },
   methods: {
     generate() {
+      this.isOpen = true
       this.create()
       setInterval(this.create.bind(this), this.time * 1000)
     },
