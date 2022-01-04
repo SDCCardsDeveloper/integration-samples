@@ -1,6 +1,7 @@
 # Integrate with SDC application APIs.
 To start using our APIs make sure to send a ```[POST]``` request to ```login``` endpoint to create a token for the current user.
 
+### To view full list of APIs follow this [documentation](https://documenter.getpostman.com/view/11448294/UVR8nmcW)
 
 _*NOTE:*_
 
